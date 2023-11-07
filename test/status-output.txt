@@ -1,0 +1,20 @@
+Status Test -----------------------------------------------------
+Enter following values :
+abc
+123
+-123
+12
+> abc
+Container: (Invalid Integer)
+Error #: 0
+Problem: Invalid Integer
+> 123
+Container: (ERR#1: value too high)
+Error #: 1
+Problem: value too high
+> -123
+Container: (ERR#-1: value too low)
+Error #: -1
+Problem: value too low
+> 12
+Container: (12)
