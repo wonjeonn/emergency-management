@@ -12,7 +12,7 @@ namespace sdds {
         ~Status();
         Status& operator=(const char* desc);
         Status& operator=(int code);
-        Status& operator=(const Status& Status);   
+        Status& operator=(const Status& Status);
         operator int() const;
         operator const char*() const;
         operator bool() const;

@@ -20,21 +20,21 @@ namespace sdds {
         m_code = Status.m_code;
     }
 
-    Status::~Status(){
+    Status::~Status() {
         clear();
     }
 
-    Status& Status::operator=(const char* desc){
+    Status& Status::operator=(const char* desc) {
         ut.alocpy(m_desc, desc);
         return *this;
     }
 
-        Status& Status::operator=(int code){
+    Status& Status::operator=(int code) {
         m_code = code;
         return *this;
     }
 
-    Status& Status::operator=(const Status& Status){
+    Status& Status::operator=(const Status& Status) {
         if (this != &Status) {
             m_code = Status.m_code;
             ut.alocpy(m_desc, Status.m_desc);
@@ -42,7 +42,7 @@ namespace sdds {
         return *this;
     }
 
-    Status::operator int() const{
+    Status::operator int() const {
         return m_code;
     }
 
@@ -50,7 +50,7 @@ namespace sdds {
         return m_desc;
     }
 
-    Status::operator bool() const{
+    Status::operator bool() const {
         return m_desc == nullptr;
     }
 
