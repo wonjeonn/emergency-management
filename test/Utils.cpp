@@ -85,4 +85,30 @@ namespace sdds {
         }
         return value;
     }
+
+    double Utils::getdouble(double min, double max, const char* prompt, const char* errMes) {
+        double value = 0.0;
+        bool isDouble = false;
+        
+        if (prompt && prompt[0]) {
+            cout << prompt;
+        }
+        
+        while (!isDouble) {
+            cin >> value;
+            
+            if (cin.fail()) {
+                cin.clear();
+                cout << "Invalid number, retry: ";
+                cin.ignore(10000, '\n');
+            } else if (value < min || value > max) {
+                cout.precision(2);
+                cout.setf(ios::fixed);
+                cout << "Value out of range [" << min << "<=val<=" << max << "]: ";
+            } else {
+                isDouble = true;
+            }
+        }
+        return value;
+    }
 }
