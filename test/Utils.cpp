@@ -39,7 +39,7 @@ namespace sdds {
         }
     }
 
-    int Utils::getint(const char* prompt) {
+    int Utils::getInt(const char* prompt) {
         int value = 0;
         bool isInt = false;
         
@@ -66,12 +66,12 @@ namespace sdds {
         return value;
     }
 
-    int Utils::getint(int min, int max, const char* prompt, const char* errMes) {
+    int Utils::getInt(int min, int max, const char* prompt, const char* errMes) {
         int value = 0;
         bool isRange = false;
         
         while (!isRange) {
-            value = getint(prompt);
+            value = getInt(prompt);
             if (value < min || value > max) {
                 if (errMes) {
                     cout << errMes << ", retry: ";
@@ -86,8 +86,8 @@ namespace sdds {
         return value;
     }
 
-    double Utils::getdouble(double min, double max, const char* prompt, const char* errMes) {
-        double value = 0.0;
+    double Utils::getDouble(const char* prompt) {
+        double value = 0;
         bool isDouble = false;
         
         if (prompt && prompt[0]) {
@@ -101,12 +101,35 @@ namespace sdds {
                 cin.clear();
                 cout << "Invalid number, retry: ";
                 cin.ignore(10000, '\n');
-            } else if (value < min || value > max) {
-                cout.precision(2);
-                cout.setf(ios::fixed);
-                cout << "Value out of range [" << min << "<=val<=" << max << "]: ";
             } else {
-                isDouble = true;
+                if (cin.get() != '\n') {
+                    cout << "Enter a double only please, retry: ";
+                    cin.ignore(10000, '\n');
+                } else {
+                    isDouble = true;
+                }
+            }
+        }
+        return value;
+    }
+
+    double Utils::getDouble(double min, double max, const char* prompt, const char* errMes) {
+        double value = 0;
+        bool isRange = false;
+        
+        while (!isRange) {
+            value = getDouble(prompt);
+            if (value < min || value > max) {
+                if (errMes) {
+                    cout << errMes << ", retry: ";
+                } else {
+                    cout.precision(2);
+                    cout.setf(ios::fixed);
+                    cout << "Value out of range [" << min << "<=val<=" << max << "]: ";
+                    prompt = nullptr;
+                }
+            } else {
+                isRange = true;
             }
         }
         return value;

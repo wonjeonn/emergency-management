@@ -13,9 +13,10 @@ namespace sdds {
         int daysOfMon(int mon, int year)const;
         void testMode(bool testmode = true);
         void alocpy(char*& destination, const char* source);
-        int getint(const char* prompt = nullptr);
-        int getint(int min, int max, const char* prompt = nullptr, const char* errMes = nullptr);
-        double getdouble(double min, double max, const char* prompt = nullptr, const char* errMes = nullptr);
+        int getInt(const char* prompt = nullptr);
+        int getInt(int min, int max, const char* prompt = nullptr, const char* errMes = nullptr);
+        double getDouble(const char* prompt);
+        double getDouble(double min, double max, const char* prompt = nullptr, const char* errMes = nullptr);
     };
     extern Utils ut;
 }

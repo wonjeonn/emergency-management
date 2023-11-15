@@ -35,8 +35,7 @@ namespace sdds {
     }
 
     Item::~Item() {
-        delete[] m_desc;
-        m_desc = nullptr;
+        clear();
     }
 
     int Item::qtyNeeded() const {
@@ -71,6 +70,10 @@ namespace sdds {
     }
 
     void Item::clear() {
+        if (m_desc) {
+            delete[] m_desc;
+        }
+        m_desc = nullptr;
         m_Status.clear();
     }
 
@@ -142,9 +145,9 @@ namespace sdds {
         std::cout << "Description: ";
         is.getline(value, 1000, '\n');
         ut.alocpy(m_desc, value);
-        m_qtyNeeded = ut.getint(1, 9999, "Quantity Needed: ");
-        m_qty = ut.getint(0, m_qtyNeeded, "Quantity On Hand: ");
-        m_price = ut.getdouble(0.0, 9999.0, "Unit Price: $");
+        m_qtyNeeded = ut.getInt(1, 9999, "Quantity Needed: ");
+        m_qty = ut.getInt(0, m_qtyNeeded, "Quantity On Hand: ");
+        m_price = ut.getDouble(0.0, 9999.0, "Unit Price: $");
         m_Status.clear();
         
         if (is.fail()) {
@@ -156,7 +159,7 @@ namespace sdds {
     }
 
     int Item::readSku(std::istream& is) {
-        m_sku = ut.getint(40000, 99999, "SKU: ");
+        m_sku = ut.getInt(40000, 99999, "SKU: ");
         return m_sku;
     }
 }
