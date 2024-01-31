@@ -5,35 +5,35 @@
 namespace sdds {
     class Item : public iProduct {
     private:
-        double m_price;
-        int m_qty;
-        int m_qtyNeeded;
-        char* m_desc;
-        bool m_linear;
+        double m_price { 0 };
+        int m_qty { 0 };
+        int m_qtyNeeded { 0 };
+        char* m_desc { nullptr };
+        bool m_linear { false };
     protected:
         Status m_Status;
-        int m_sku;
+        int m_sku { 0 };
         bool linear() const;
     public:
         Item();
         Item(const Item& Item);
         Item& operator=(const Item& Item);
         ~Item();
-        int qtyNeeded() const;
-        int qty() const;
-        operator double() const;
-        operator bool() const;
-        virtual int operator-=(int qty);
-        virtual int operator+=(int qty);
-        virtual void linear(bool linear);
+        virtual int qtyNeeded() const override;
+        virtual int qty() const override;
+        virtual operator double() const override;
+        virtual operator bool() const override;
+        virtual int operator-=(int qty) override;
+        virtual int operator+=(int qty) override;
+        virtual void linear(bool linear) override;
         void clear();
-        virtual bool operator==(int sku) const;
-        virtual bool operator==(const char* desc) const;
-        virtual std::ofstream& save(std::ofstream& ofs) const;
-        virtual std::ifstream& load(std::ifstream& ifs);
-        virtual std::ostream& display(std::ostream& os) const;
-        virtual std::istream& read(std::istream& is);
-        virtual int readSku(std::istream& is);
+        virtual bool operator==(int sku) const override;
+        virtual bool operator==(const char* desc) const override;
+        virtual std::ofstream& save(std::ofstream& ofs) const override;
+        virtual std::ifstream& load(std::ifstream& ifs) override;
+        virtual std::ostream& display(std::ostream& os) const override;
+        virtual std::istream& read(std::istream& is) override;
+        virtual int readSku(std::istream& is) override;
     };
 }
 

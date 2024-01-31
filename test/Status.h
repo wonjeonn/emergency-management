@@ -3,10 +3,10 @@
 
 namespace sdds {
     class Status {
-        char* m_desc = nullptr;
-        int m_code;
+        char* m_desc { nullptr };
+        int m_code { 0 };
     public:
-        Status();
+        Status() = default;
         Status(const char* desc);
         Status(const Status& Status);
         ~Status();

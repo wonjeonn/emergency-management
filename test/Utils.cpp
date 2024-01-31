@@ -30,7 +30,7 @@ namespace sdds {
         return days[mon] + int((mon == 1) * ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
     }
 
-    void Utils::alocpy(char*& destination, const char* source) {
+    void Utils::aloCpy(char*& destination, const char* source) {
         delete[] destination;
         destination = nullptr;
         if (source) {

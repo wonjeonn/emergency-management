@@ -5,18 +5,12 @@
 #include "Utils.h"
 
 namespace sdds {
-    Status::Status() {
-        m_desc = nullptr;
-        m_code = 0;
-    }
-
     Status::Status(const char* desc) {
-        m_code = 0;
-        ut.alocpy(m_desc, desc);
+        ut.aloCpy(m_desc, desc);
     }
 
     Status::Status(const Status& Status) {
-        ut.alocpy(m_desc, Status.m_desc);
+        ut.aloCpy(m_desc, Status.m_desc);
         m_code = Status.m_code;
     }
 
@@ -25,7 +19,7 @@ namespace sdds {
     }
 
     Status& Status::operator=(const char* desc) {
-        ut.alocpy(m_desc, desc);
+        ut.aloCpy(m_desc, desc);
         return *this;
     }
 
@@ -37,7 +31,7 @@ namespace sdds {
     Status& Status::operator=(const Status& Status) {
         if (this != &Status) {
             m_code = Status.m_code;
-            ut.alocpy(m_desc, Status.m_desc);
+            ut.aloCpy(m_desc, Status.m_desc);
         }
         return *this;
     }

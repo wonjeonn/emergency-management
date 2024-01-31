@@ -12,7 +12,7 @@ namespace sdds {
         void getSystemDate(int* year = nullptr, int* mon = nullptr, int* day = nullptr);
         int daysOfMon(int mon, int year)const;
         void testMode(bool testmode = true);
-        void alocpy(char*& destination, const char* source);
+        void aloCpy(char*& destination, const char* source);
         int getInt(const char* prompt = nullptr);
         int getInt(int min, int max, const char* prompt = nullptr, const char* errMes = nullptr);
         double getDouble(const char* prompt);
