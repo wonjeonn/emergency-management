@@ -125,7 +125,8 @@ namespace sdds {
             }
             os << " | " << std::right << std::setw(4) << std::setfill(' ') << m_qty
                << " | " << std::right << std::setw(4) << std::setfill(' ') << m_qtyNeeded
-               << " | " << std::right << std::setw(7) << std::setfill(' ') << std::fixed << std::setprecision(2) << m_price << " |";
+               << " | " << std::right << std::setw(7) << std::setfill(' ') << std::fixed << std::setprecision(2) << m_price
+               << " |";
         } else {
             os << "AMA Item:" << std::endl
             << m_sku << ": " << m_desc << std::endl
