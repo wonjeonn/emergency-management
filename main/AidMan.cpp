@@ -22,8 +22,7 @@ namespace sdds {
         return -1;
     }
 
-    void AidMan::remove(int index)
-    {
+    void AidMan::remove(int index) {
         delete m_iProduct[index];
         m_iProduct[index] = nullptr;
 
